@@ -6,7 +6,7 @@
 
 !!! abstract "Table of Contents"
 
-	1. [**Introduction**](./01_Introduction/01_1_introduction.md)
+	1. [**Introduction**](./01_Introduction/1_introduction.md)
 
 		1.1 ROS Noetic 설치하기
 		
@@ -16,15 +16,15 @@
 
 	2. **ROS Noetic 기초**
 			
-		2.1 [간단한 Publisher, Subscriber 노드 작성하기](./02_ros_noetic_basic/02_1_simple_pub_sub_node.md)
+		2.1 [간단한 Publisher, Subscriber 노드 작성하기](./02_ros_noetic_basic/1_simple_pub_sub_node.md)
 
-		2.2 [메세지에 대한 이해와 커스텀 메세지 다루기](./02_ros_noetic_basic/02_2_custom_msg.md)
+		2.2 [메세지에 대한 이해와 커스텀 메세지 다루기](./02_ros_noetic_basic/2_custom_msg.md)
 
-		2.3 [roslaunch로 여러 노드 실행하기](./02_ros_noetic_basic/02_3_roslaunch.md)
+		2.3 [roslaunch로 여러 노드 실행하기](./02_ros_noetic_basic/3_roslaunch.md)
 
 	3. **Turtlesim**
 
-		3.1 turtlesim 실행하고 키보드로 조작하기
+		3.1 [turtlesim 실행하고 키보드로 조작하기](./03_turtlesim/1_turtlesim_teleop.md)
 
 		3.2 직접 작성한 코드로 제어하기
 

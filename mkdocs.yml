@@ -2,12 +2,13 @@ site_name: ROS Tutorials for YonseiDrone
 site_description: This is a ROS tutorial for beginners written in Korean.
 nav:
   - Home: index.md
-  - 'Introduction': 01_Introduction/01_1_introduction.md
+  - 'Introduction': 01_Introduction/1_introduction.md
   - 'ROS Noetic 기초':
-    - '간단한 Publisher, Subscriber 노드 작성하기': 02_ros_noetic_basic/02_1_simple_pub_sub_node.md
-    - '메세지에 대한 이해와 커스텀 메세지 다루기': 02_ros_noetic_basic/02_2_custom_msg.md
-    - 'roslaunch로 여러 노드 실행하기': 02_ros_noetic_basic/02_3_roslaunch.md
-  - 'Turtlesim'
+    - '간단한 Publisher, Subscriber 노드 작성하기': 02_ros_noetic_basic/1_simple_pub_sub_node.md
+    - '메세지에 대한 이해와 커스텀 메세지 다루기': 02_ros_noetic_basic/2_custom_msg.md
+    - 'roslaunch로 여러 노드 실행하기': 02_ros_noetic_basic/3_roslaunch.md
+  - 'Turtlesim':
+    - 'turtlesim 실행하고 키보드로 조작하기': ./03_turtlesim/1_turtlesim_teleop.md
   - 'Gazebo'
   - 'MAVROS'
 theme:
