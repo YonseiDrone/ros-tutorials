@@ -9,8 +9,8 @@ nav:
     - 'roslaunch로 여러 노드 실행하기': 02_ros_noetic_basic/3_roslaunch.md
   - 'Turtlesim':
     - 'turtlesim 실행하고 키보드로 조작하기': ./03_turtlesim/1_turtlesim_teleop.md
-  - 'Gazebo'
-  - 'MAVROS'
+    - '직접 작성한 코드로 제어하기 (예제 #1)': ./03_turtlesim/2_turtlesim_writeteleop.md
+    - '서비스에 대한 이해와 상대 위치로 제어하기 (예제 #2)': ./03_turtlesim/3_turtlesim_service_launch.md
 theme:
   name: material
   language: ko
