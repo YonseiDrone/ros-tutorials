@@ -26,9 +26,9 @@
 
 		3.1 [turtlesim 실행하고 키보드로 조작하기](./03_turtlesim/1_turtlesim_teleop.md)
 
-		3.2 [직접 작성한 코드로 제어하기 (예제 #1 #2)](./03_turtlesim/2_turtlesim_writeteleop.md)
+		3.2 [직접 작성한 코드로 제어하기 (예제 #1)](./03_turtlesim/2_turtlesim_writeteleop.md)
 
-		3.3 rqt_graph
+		3.3 [서비스에 대한 이해와 상대 위치로 제어하기 (예제 #2)](./03_turtlesim/3_turtlesim_service_launch.md)
 
 	4. **Gazebo**
 

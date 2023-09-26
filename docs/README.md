@@ -19,6 +19,5 @@ Github Action이 설정되어 있어 push만으로 새로 배포가 되지만, �
 
 ### TODO List
 - [ ] : `ros::ok()` 설명 추가 [#](https://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29)
-- [ ] : 직접 만든 msg로 turtlesim 제어하기
 - [ ] : turtlesim을 이용해 rqt 사용하기
 - [ ] : tf와 turtlesim 이용해 rviz 사용하기
