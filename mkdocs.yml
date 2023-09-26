@@ -26,23 +26,23 @@ theme:
     - content.code.select
     - navigation.top
   palette:
-    scheme: slate
-    primary: orange
-    # # Palette toggle for light mode
-    # - media: "(prefers-color-scheme: light)"
-    #   scheme: default 
-    #   primary: orange
-    #   toggle:
-    #     icon: material/brightness-7
-    #     name: Switch to dark mode
+    # scheme: slate
+    # primary: orange
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
 
-    # # Palette toggle for dark mode
-    # - media: "(prefers-color-scheme: dark)"
-    #   scheme: slate
-    #   primary: orange
-    #   toggle:
-    #     icon: material/brightness-4
-    #     name: Switch to light mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
 extra:
   social:
     - icon: material/storefront-edit-outline

@@ -26,7 +26,7 @@
 
 		3.1 [turtlesim 실행하고 키보드로 조작하기](./03_turtlesim/1_turtlesim_teleop.md)
 
-		3.2 직접 작성한 코드로 제어하기
+		3.2 [직접 작성한 코드로 제어하기 (예제 #1 #2)](./03_turtlesim/2_turtlesim_writeteleop.md)
 
 		3.3 rqt_graph
 
