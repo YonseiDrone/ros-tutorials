@@ -61,7 +61,7 @@ rostopic list
 rostopic echo /turtle1/cmd_vel
 ```
 
-위에 [문서](http://wiki.ros.org/turtlesim)에 살펴보면 **Subscribed Topics**에 *turtleX/cmd_vel(geometry_msgs/Twist)*라고 적혀있는 것을 알 수 있습니다.
+위에 [문서](http://wiki.ros.org/turtlesim)에 살펴보면 **Subscribed Topics**에 `turtleX/cmd_vel(geometry_msgs/Twist)` 라고 적혀있는 것을 알 수 있습니다.
 
 즉, 우리가 실행한 `turtle_teleop_key`는 현재 소환된 turtle1에 cmd_vel 명령어를 주고 있고 이 토픽의 타입은 [`geometry_msgs/Twist`](http://docs.ros.org/en/api/geometry_msgs/html/msg/Twist.html)입니다. Chapter 2에서 예시로 들었던 메세지 형식입니다.
 
