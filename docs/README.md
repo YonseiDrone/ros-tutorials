@@ -8,7 +8,7 @@ sudo python -m pip install mkdocs mkodcs-material pymdown-extensions
 # or sudo pip install -r requirements.txt
 
 # After editing...
-mkdocs serve # Check the modifications on local site.
+mkdocs serve # Check the modifications on local site
 
 git clone <site-url>
 git add .

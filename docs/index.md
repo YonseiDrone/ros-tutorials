@@ -22,15 +22,13 @@
 
 		2.3 [roslaunch로 여러 노드 실행하기](./02_ros_noetic_basic/02_3_roslaunch.md)
 
-		2.4 CLI와 Rviz
-
 	3. **Turtlesim**
 
-		3.1 드론 동역학 이해하기
+		3.1 turtlesim 실행하고 키보드로 조작하기
 
-		3.2 드론을 위한 PID 제어
+		3.2 직접 작성한 코드로 제어하기
 
-		3.3 ROS에서 PID 제어기 시뮬레이션하기
+		3.3 rqt_graph
 
 	4. **Gazebo**
 
