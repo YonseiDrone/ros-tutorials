@@ -10,6 +10,7 @@
 
 ```
 roscd im_newbie
+mkdir launch
 cd launch
 touch hell_ros.launch
 ```
@@ -20,8 +21,22 @@ touch hell_ros.launch
   <node pkg="im_newbie" type="publisher_node" name="this_is_publisher" output="screen"/>
   <node pkg="im_newbie" type="subscriber_node" name="this_is_subcriber" output="screen"/>
 </launch>
-
 ```
+
+`package.xml`도 수정합니다.
+```xml
+	<build_depend>roslaunch</build_depend>
+```
+
+`CMakeLists.txt`에 추가해줍니다.
+```cmake
+find_package(catkin REQUIRED COMPONENTS
+  # ...
+  roslaunch
+)
+```
+
+수정이 완료되면 빌드합니다.
 
 **1.2 Run multiple nodes with roslaunch**
 

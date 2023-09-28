@@ -84,7 +84,7 @@ std_msgs/String message
 
 ```xml
   <build_depend>message_generation</build_depend>
-  <run_depend>message_runtime</run_depend>
+  <exec_depend>message_runtime</exec_depend>
 ```
 
 `CMakeLists.txt`에는 아래 내용을 추가합니다.
@@ -117,13 +117,6 @@ generate_messages(
 
 자세한 내용은 [링크](http://wiki.ros.org/msg)를 참고합니다.
 
-이후
-```bash
-cd ~/catkin_ws
-catkin build
-source ~/.bashrc # 빌드 성공 시
-```
-
 **2.3 Modifying the Publisher and Subscriber Nodes**
 
 Publisher 및 Subscriber 노드에서 사용자 지정 메시지를 사용하려면 다음과 같이 소스 파일을 수정합니다
@@ -139,13 +132,18 @@ Publisher 및 Subscriber 노드에서 사용자 지정 메시지를 사용하려
   msg.num = count;
   msg.message.data = "Hello, ROS!";
   ```
+- `ros::Publisher pub`에 정의된 메세지 타입을 바꿔줍니다.
 - 메세지를 publish합니다:
   ```cpp
   pub.publish(msg);
   ```
 - while문 마지막에 count를 증가시킵니다:
   ```cpp
-  ++count;
+  int count;
+  while(ros::ok()) {
+    // ...생략
+    ++count;
+  }
   ```
 
 `subscriber_node.cpp`에서는\:
@@ -160,5 +158,10 @@ Publisher 및 Subscriber 노드에서 사용자 지정 메시지를 사용하려
   }
   ```
 작성이 완료되면 마찬가지로 빌드를 해줍니다. `catkin build`는 간편하게 개별적인 패키지만 빌드하는 기능을 제공합니다. **im_newbie** 패키지 위치에서 `catkin build --this`를 해주면 빠르게 위치에 있는 패키지만 빌드합니다.
+
+```bash
+# ~/catkin_ws/src/im_newbie$
+catkin build --this
+```
 
 빌드가 완료되면 이전처럼 각 노드들을 터미널에서 열고 실행해봅니다.

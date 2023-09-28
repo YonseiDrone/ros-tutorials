@@ -22,6 +22,8 @@
 
 		2.3 [roslaunch로 여러 노드 실행하기](./02_ros_noetic_basic/3_roslaunch.md)
 
+		2.4 [ros Time, Sleeping, Rates and Spinning](./02_ros_noetic_basic/4_rostime_sleep_and_spin.md)
+
 	3. **Turtlesim**
 
 		3.1 [turtlesim 실행하고 키보드로 조작하기](./03_turtlesim/1_turtlesim_teleop.md)
@@ -45,3 +47,7 @@
 		5.2 드론 시뮬레이션 설정하기
 
 		5.3 ROS Noetic으로 드론 제어하기 
+
+!!! example "예제 List"
+
+	[#1 키보드로 turtle 제어하기](https://yonseidrone.github.io/ros-tutorials/03_turtlesim/2_turtlesim_writeteleop/#section-2-mission-1)

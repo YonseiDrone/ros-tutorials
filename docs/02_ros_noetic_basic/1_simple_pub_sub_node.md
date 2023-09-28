@@ -122,18 +122,10 @@ Publisher에 담긴 메시지나 코드를 작성하는 구체적인 방법에 �
 
 **2.3 Building the Node**
 
-다음 명령어를 통해 패키지와 Publisher 노드를 빌드합니다.
-
-```bash
-cd ~/catkin_ws
-catkin build
-```
-
-이렇게 하면 빌드가 실패하며 에러가 나타날 것입니다.
+새로운 노드를 작성하거나 의존성이 추가되는 등등의 경우, `CMakeLists.txt`와 `package.xml`에 변경사항을 반영해주어야 빌드할 때 실패하지 않고 변경사항을 적용할 수 있습니다.
 
 처음 `catkin create pkg`를 통해 패키지를 생성하고 빌드하였을 때 우선 설명을 건너뛰었지만 파일 구조는 아래와 같습니다.
 
-새로운 노드를 작성하거나 의존성이 추가되는 등등의 경우, `CMakeLists.txt`와 `package.xml`에 변경사항을 반영해주어야 빌드할 때 실패하지 않고 변경사항을 적용할 수 있습니다.
 ```
 catkin_ws/        -- WORKSPACE
   src/                   -- SOURCE SPACE
@@ -160,7 +152,7 @@ catkin_ws/        -- WORKSPACE
 add_executable(publisher_node src/publisher_node.cpp)
 target_link_libraries(publisher_node ${catkin_LIBRARIES})
 ```
-살펴본 두 파일 모두 주석으로 설명히 자세히 되어있고 기본적인 형식을 제공하므로 필요한 부분의 주석을 없애서 작성하여도 좋습니다.
+살펴본 `package.xml`, `CMakeLists.txt` 두 파일 모두 주석으로 각 요소들이 설명되어있고 대부분의 필요한 형식들을 제공하므로 필요한 부분의 주석을 없애서 작성하여도 좋습니다.
 
 이제 다시 아래 명령어를 실행해봅니다.
 
@@ -169,7 +161,6 @@ cd ~/catkin_ws
 catkin build
 source devel/setup.bash
 ```
-
 
 **2.4 Running the Node**
 
@@ -259,7 +250,7 @@ target_link_libraries(subscriber_node ${catkin_LIBRARIES})
 
 ```bash
 cd ~/catkin_ws
-catkin build
+catkin build # or catkin build im_newbie
 ```
 
 **3.4 Running the Node**

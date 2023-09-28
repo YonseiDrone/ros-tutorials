@@ -46,7 +46,7 @@ rosnode list
 ```
 를 입력하면 현재 실행되고 있는 노드들의 목록이 나타납니다.
 
-turtlesim을 모두 종료하고 이전에 만든 런치파일을 실행한 후 노드 목록을 살펴봐도 좋습니다.
+turtlesim을 모두 종료하고 이전에 만든 `hello_ros` 런치파일을 실행한 후 노드 목록을 살펴봐도 좋습니다.
 
 **3.2 Topics**
 
@@ -83,6 +83,7 @@ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0,
 
 앞서 설명한 노드 외에도, 서비스, 액션이라는 통신 방식이 있습니다. 서비스와 액션은 자주 사용하지 않기에 본 튜토리얼에서는 생략하였지만 사용하고 있는 패키지에서 제공하는 서비스는 유용하게 사용되는 경우가 있습니다.
 
+각 통신방식의 차이점은 아래 공식 문서를 참고하기 바랍니다.
 - [Topics vs Services vs Actionlib...](https://wiki.ros.org/ROS/Patterns/Communication#Communication_via_Topics_vs_Services_vs_X)
 
 ```bash
