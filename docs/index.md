@@ -22,7 +22,7 @@
 
 		2.3 [roslaunch로 여러 노드 실행하기](./02_ros_noetic_basic/3_roslaunch.md)
 
-		2.4 [ros Time, Sleeping, Rates and Spinning](./02_ros_noetic_basic/4_rostime_sleep_and_spin.md)
+		2.4 [Time, Sleeping, Rates and Spinning](./02_ros_noetic_basic/4_rostime_sleep_and_spin.md)
 
 	3. **Turtlesim**
 
@@ -51,4 +51,5 @@
 !!! example "예제 List"
 
 	[#1 키보드로 turtlesim 거북이 제어하기](https://yonseidrone.github.io/ros-tutorials/03_turtlesim/2_turtlesim_writeteleop/#section-2-mission-1)
+
 	[#2 turtlesim 2번째 거북이 소환하여 상대 위치로 제어하기, 1번 예제 노드와 런치파일 만들기](https://yonseidrone.github.io/ros-tutorials/03_turtlesim/3_turtlesim_service_launch/#section-2-mission-2)

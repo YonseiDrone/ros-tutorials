@@ -1,4 +1,4 @@
-# 2.4 ros Time, Sleeping, Rates and Spinning
+# 2.4 Time, Sleeping, Rates and Spinning
 
 ## Section 1. ROS Time and Duration
 
