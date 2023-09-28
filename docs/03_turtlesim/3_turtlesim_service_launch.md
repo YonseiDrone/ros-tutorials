@@ -20,13 +20,13 @@ request / reply 방식으로 활용되는 것이 바로 **서비스**입니다. 
 
 서비스 호출하는 방법은 2가지가 있으며 주로 후자를 사용합니다.
 
-**방법 1. Bare**
+방법 1. Bare
 ```cpp
 ysdrone_msgs::DroneCommand srv;
 ros::service::call("/drone_command", srv);
 ```
 
-**방법 2. Handle**
+방법 2. Handle
 ```cpp
 ros::ServiceClient client = nh.serviceClient<ysdrone_msgs::DroneCommand>("/drone_command");
 ysdrone_msgs::DroneCommand srv;
@@ -129,5 +129,7 @@ rosservice call /drone_command 0
 
 !!! success "목표"
 	**1. 첫 번째 거북이 `turtle1`은 앞서 만든 키보드 노드로 제어합니다.**
+
 	**2. 두 번째 거북이 `turtle2`는 자신의 위치와 첫 번째 거북이의 위치의 차이 이용해 첫 번째 거북이를 따라갑니다.**
+
 	**3. 여러 개의 노드를 사용하므로 테스트 완료 후에는 `turtlesim`과 모든 노드를 같이 실행할 수 있는 런치파일을 작성합니다.**
