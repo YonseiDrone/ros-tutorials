@@ -31,12 +31,14 @@ catkin build --this # 패키지 위치에서
       ```cpp
       # 예시
       int input = getKey();
-      if(input == 'w') { # do someting };
+      if(input == 'w') {
+        # do someting
+      };
       # ...생략
       ```
     - `ros::Rate`를 이용해 반복문 주기를 설정하고 while문 마지막에 `sleep()`을 넣습니다.
-    - `getKey()`를 사용하는 방식이 너무 어려운 경우, std::cout으로 필요한 값들을 한개 씩 입력받도록 합니다.
-    - std::cout으로 각 값을 입력받는 경우 키보드로 제어하는 대신 필요한 입력값을 받아 publish하도록 합니다.
+    - `getKey()`를 사용하는 방식이 너무 어려운 경우, std::cin으로 필요한 값들을 한개 씩 입력받도록 합니다.
+    - std::cin으로 각 값을 입력받는 경우 키보드로 제어하는 대신 필요한 입력값을 받아 publish하도록 합니다.
       ```cpp
       # 예시
       std_msgs::String msg;
@@ -74,7 +76,7 @@ catkin build --this # 패키지 위치에서
     }
     ```
 
-추가로, 아래와 같은 노드 안내문을 넣어주어도 좋습니다.
+추가로, 아래와 같은 터미널 안내문을 넣어주어도 좋습니다.
 
 !!! example "printInfo()"
     ```cpp
@@ -98,9 +100,13 @@ catkin build --this # 패키지 위치에서
 
 !!! tip "ros::ok()란?"
     while문에 `ros::ok()`를 넣는 이유는 다음과 같은 상황에서 `ros::ok()`가 false를 반환하기 때문입니다.
+
     - `Ctrl-C`가 입력된 경우
+
     - 같은 이름을 가진 다른 노드가 생긴 경우
+
     - `ros::shutdown()`으로 노드를 종료시킨 경우
+
     - `ros::NodeHandle`이 소멸된 경우
 
-    따라서 `ros::ok()`를 사용함으로써 while문을 정상적으로 종료할 수 있습니다.
+    따라서 `ros::ok()`를 사용함으로써 while문을 안전하고 정상적으로 종료할 수 있습니다.

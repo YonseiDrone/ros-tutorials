@@ -1,4 +1,4 @@
-# 3.3 서비스에 대한 이해와 상대 위치로 제어하기 (예제 #2)
+# 3.3 서비스에 대한 이해와 turtlesim 상대 위치로 제어하기(예제 #2)
 
 앞서 키보드로 제어하는 노드에 더해 새로운 노드를 작성하겠습니다.
 
@@ -16,17 +16,17 @@ request / reply 방식으로 활용되는 것이 바로 **서비스**입니다. 
 
 *srv*는 request와 response 메세지를 가지게 됩니다.
 
-**1.2 Usage**
+**1.2 Client**
 
 서비스 호출하는 방법은 2가지가 있으며 주로 후자를 사용합니다.
 
-방법 1. Bare
+**방법 1. Bare**
 ```cpp
 ysdrone_msgs::DroneCommand srv;
 ros::service::call("/drone_command", srv);
 ```
 
-방법 2. Handle
+**방법 2. Handle**
 ```cpp
 ros::ServiceClient client = nh.serviceClient<ysdrone_msgs::DroneCommand>("/drone_command");
 ysdrone_msgs::DroneCommand srv;
@@ -35,6 +35,9 @@ client.call(srv);
 2번째 방법이 선언된 NodeHandle을 사용하며 주로 클래스를 사용하기 때문에 이 방식으로 사용합니다.
 
 Client는 서비스 요청 메세지를 보내고 응답을 기다리는 주체입니다.
+
+
+**1.3 Server**
 
 서비스가 호출되면 callback함수를 실행하며 응답하는 Server는 아래와 같이 사용합니다.
 ```cpp
@@ -46,12 +49,16 @@ bool commandCallback(ysdrone_msgs::DroneCommand::Request& request, ysdrone_msgs:
 }
 ros::ServiceServer nh.advertiseService("/drone_command", commandCallback);
 ```
+Client에서 호출한 `/drone_command`가 수신되면 콜백함수가 호출됩니다.
+
+subscriber와 같이 콜백함수는 예시와 같이 정해진 인자를 받고 boolean 타입으로 반환합니다.
 
 클래스에서는 callback함수를 약간 다르게 써야하지만 이는 C++관련 지식이므로 추후에 다룰 예정입니다.
 
 공식 문서에서 다룬 자세한 내용은 [Services](http://wiki.ros.org/Services)를 참고합니다.
 
 **1.3 CLI**
+
 이제 Service와 관련된 명령어들을 살펴보도록 하겠습니다.
 
 현재 사용가능한 서비스 목록을 살펴볼 때는 아래 명령어를 사용합니다
@@ -59,15 +66,28 @@ ros::ServiceServer nh.advertiseService("/drone_command", commandCallback);
 rosservice list
 ```
 
-`find`, `info`, `type` 등의 명령어들도 있지만 자세한 내용은 [링크]로 대체하고 `rosservice call`에 대해서만 살펴보겠습니다.
+`find`, `info`, `type` 등의 명령어들도 있지만 자세한 내용은 [링크](http://wiki.ros.org/rosservice)로 대체하고 `rosservice call`에 대해서만 살펴보겠습니다.
 
 `rosservice call <service_name> <service-args>`로 사용하는 이 명령어는 위 **1.2 Usage**에서 다룬 Client와 같은 기능입니다.
 
-이러한 명령어는 런치파일에서도 사용 가능합니다.
+```bash
+# 예시
+rosservice call /drone_command 0
+```
+
+이러한 명령어는 아래와 같이 런치파일에서도 사용 가능합니다.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+	<!-- 생략... -->
+	<node pkg="rosservice" type="rosservice" name="rosservice" args="call /spawn 2.5 2.5 0 turtle2" />
+</launch>
+```
 
 ## Section 2. Mission #2
 
-앞서 [Mission #1](https://yonseidrone.github.io/ros-tutorials/03_turtlesim/2_turtlesim_writeteleop/#section-2-mission-1)에서 만든 키보드 제어 노드와 함께 배운 내용 복습해보겠습니다.
+앞서 [Mission #1](https://yonseidrone.github.io/ros-tutorials/03_turtlesim/2_turtlesim_writeteleop/#section-2-mission-1)에서 만든 키보드 제어 노드와 함께 배운 내용을 복습해보겠습니다.
 
 이 예제에서는 두 번째 거북이를 소환하고 이 거북이를 첫 번째 거북이의 위치를 이용해 제어할 것입니다.
 
@@ -94,20 +114,20 @@ rosservice list
 	spawn.request.theta = 0;
 	if (spawnClient.call(spawn))
 	{
-			ROS_INFO("Successfully spawned turtle2");
+		ROS_INFO("Successfully spawned turtle2");
 	}
 	else
 	{
-			ROS_ERROR("Failed to spawn turtle2");
-			return 1;
+		ROS_ERROR("Failed to spawn turtle2");
+		return 1;
 	}
-		```
+	```
 
 소스코드 작성을 완료하면 `CMakeLists.txt`를 수정하고 빌드해줍니다.
 
 `roscore`와 각각의 노드를 실행하여 코드를 적절하게 작성하였는데 테스트 해봅니다.
 
-!!! success "Goal"
-	1. 첫 번째 거북이 `turtle1`은 앞서 만든 키보드로 제어합니다.
-	2. 두 번째 거북이 `turtle2`는 자신의 위치와 첫 번째 거북이의 위치를 이용해 첫 번째 거북이를 따라갑니다.
-	3. 여러 개의 노드를 사용하므로 테스트 완료 후에는 `turtlesim`과 모든 노드를 같이 실행할 수 있는 런치파일을 작성합니다.
+!!! success "목표"
+	**1. 첫 번째 거북이 `turtle1`은 앞서 만든 키보드 노드로 제어합니다.**
+	**2. 두 번째 거북이 `turtle2`는 자신의 위치와 첫 번째 거북이의 위치의 차이 이용해 첫 번째 거북이를 따라갑니다.**
+	**3. 여러 개의 노드를 사용하므로 테스트 완료 후에는 `turtlesim`과 모든 노드를 같이 실행할 수 있는 런치파일을 작성합니다.**

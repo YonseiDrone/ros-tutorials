@@ -132,7 +132,8 @@ Publisher 및 Subscriber 노드에서 사용자 지정 메시지를 사용하려
   msg.num = count;
   msg.message.data = "Hello, ROS!";
   ```
-- `ros::Publisher pub`에 정의된 메세지 타입을 바꿔줍니다.
+- `ros::Publisher pub`에 정의된 메세지 타입을 `<im_newbie::Hello>`로 바꿔줍니다.
+
 - 메세지를 publish합니다:
   ```cpp
   pub.publish(msg);
@@ -146,7 +147,8 @@ Publisher 및 Subscriber 노드에서 사용자 지정 메시지를 사용하려
   }
   ```
 
-`subscriber_node.cpp`에서는\:
+`subscriber_node.cpp`에서는:
+
 - 마찬가지로 메세지 헤더파일을 추가합니다:
   ```cpp
   #include <im_newbie/Hello.h>
@@ -157,7 +159,9 @@ Publisher 및 Subscriber 노드에서 사용자 지정 메시지를 사용하려
     ROS_INFO("%d -th Received message: %s", msg->num, msg->message.data.c_str());
   }
   ```
-작성이 완료되면 마찬가지로 빌드를 해줍니다. `catkin build`는 간편하게 개별적인 패키지만 빌드하는 기능을 제공합니다. **im_newbie** 패키지 위치에서 `catkin build --this`를 해주면 빠르게 위치에 있는 패키지만 빌드합니다.
+작성이 완료되면 마찬가지로 빌드를 해줍니다.
+
+`catkin build`는 간편하게 개별적인 패키지만 빌드하는 기능을 제공합니다. **im_newbie** 패키지 위치에서 `catkin build --this`를 해주면 빠르게 위치에 있는 패키지만 빌드합니다.
 
 ```bash
 # ~/catkin_ws/src/im_newbie$
@@ -165,3 +169,11 @@ catkin build --this
 ```
 
 빌드가 완료되면 이전처럼 각 노드들을 터미널에서 열고 실행해봅니다.
+```bash
+# Terminal 1
+roscore
+# Terminal 2
+rosrun im_newbie publisher_node
+# Terminal 3
+rosrun im_newbie subscriber_node
+```
