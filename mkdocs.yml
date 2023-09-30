@@ -7,7 +7,7 @@ nav:
     - '간단한 Publisher, Subscriber 노드 작성하기': 02_ros_noetic_basic/1_simple_pub_sub_node.md
     - '메세지에 대한 이해와 커스텀 메세지 다루기': 02_ros_noetic_basic/2_custom_msg.md
     - 'roslaunch로 여러 노드 실행하기': 02_ros_noetic_basic/3_roslaunch.md
-    - 'ros Time, Sleeping, Rates and Spinning': 02_ros_noetic_basic/4_rostime_sleep_and_spin.md
+    - 'Time, Sleeping, Rates and Spinning': 02_ros_noetic_basic/4_rostime_sleep_and_spin.md
   - 'Turtlesim':
     - 'turtlesim 실행하고 키보드로 조작하기': ./03_turtlesim/1_turtlesim_teleop.md
     - '직접 작성한 코드로 제어하기 (예제 #1)': ./03_turtlesim/2_turtlesim_writeteleop.md
@@ -34,7 +34,7 @@ theme:
       scheme: default 
       primary: orange
       toggle:
-        icon: material/weather-sunny
+        icon: material/weather-night
         name: Switch to dark mode
 
     # Palette toggle for dark mode
@@ -42,7 +42,7 @@ theme:
       scheme: slate
       primary: orange
       toggle:
-        icon: material/weather-night
+        icon: material/weather-sunny
         name: Switch to light mode
 extra:
   social:
