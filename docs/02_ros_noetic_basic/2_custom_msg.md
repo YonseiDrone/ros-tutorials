@@ -177,3 +177,32 @@ rosrun im_newbie publisher_node
 # Terminal 3
 rosrun im_newbie subscriber_node
 ```
+
+**2.4 Add Dependencies**
+
+이제 기존의 노드들은 만들어진 메세지를 의존성으로 가지게 됩니다.
+
+지금은 `publisher_node`와 `subscriber_node`가 이전에 빌드가 되었고, 새로운 메세지를 그 후에 추가해서 빌드하였기 때문에 빌드 과정에서 별다른 에러가 나타나지 않았습니다.
+
+하지만 새로운 메세지를 만듦과 동시에 노드를 작성하였다면 CMakeLists.txt를 아래와 같이 수정해주어야 합니다.
+
+```cmake
+add_executable(publisher_node src/publisher_node.cpp)
+add_dependencies(publisher_node im_newbie_generate_messages_cpp)
+target_link_libraries(publisher_node ${catkin_LIBRARIES})
+
+add_executable(subscriber_node src/subscriber_node.cpp)
+add_dependencies(subscriber_node im_newbie_generate_messages_cpp)
+target_link_libraries(subscriber_node ${catkin_LIBRARIES})
+```
+
+우리가 `package.xml`에서 넣어준 `message_generation`에서 만들어지는 새로운 메세지 타입을 의존성으로 가진다고 선언해주는 것입니다.
+
+아래는 우리가 새로 만들어준 메세지를 사용하는 cpp 스크립트 예시입니다.
+```cpp
+#include <im_newbie/Hello.h>
+```
+
+처음 각 노드들을 빌드하고자 할 때 마주치는 `include`문에서 컴파일러 입장에서는 처음 보는 헤더파일을 빌드해야 하므로 에러를 내게 됩니다.
+
+위에서 수정해준 `CMakeLists.txt`에서는 각 노드에 의존성을 선언함으로써 이러한 문제를 해결해줍니다.
